@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width,initial-scale=1.0">
+    <title>green forest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container" id="loginscreen">
+        <h2>pusumai veggies </h2>
+        <p> pls enter your details</p>
+
+     <div class="input-group">
+        <label for="username">username</label>
+        <input type="text" id="username" placeholder="admin">
+     </div> 
+    
+     <div class="input-group">
+        <label for="password">password</label>
+        <input type="password" id="password" placeholder="abc123">
+     </div>
+
+    <button class="login-botton"onclick="check=login()">login</button>
+    <p class="=error-msg" id="error-msg">incorrect username or password</p>
+    </div>   
+
+    <div class="shop-container" id="shopscreen">
+      <div class="shop-header">
+      <h1>vegetable shop</h1>
+      <button class="logout-button" onclick="logout()"></button>
+      </div>
+        <h2>today new arrives(fresh items)</h2>
+         
+    
+
+    <div class="veg-grid">
+        <div class="veg-card">
+            <div class="veg-icon">🍅</div>
+            <h3>tomato</h3>
+            <p class="price">1 kg - $40</p>
+            <button class="buy-button"onclick="addedtocard('tomato')">added to card</button>
+         </div>
+    
+     <div class="veg-card">
+        <div class="veg-icon" >🥕</div> 
+            <h3>carrot</h3>
+            <p class="price">1 kg - $60</p>
+            <button class="buy-button" onclick="addtocart('carrot')">add to cart</button>
+        </div>
+   
+     <div class="veg-card">
+        <div class="veg-icon">🥔</div>
+        <h3>potato</h3>
+        <p class="price">1 kg-$35</p>
+        <button class="buy-button" onclick="addtocart('potato')">addedtocard</button>
+     </div>
+     </div>
+    </div>   
+    
+   <script>
+      const VALID_USERNAME = "admin";
+      const VALID_PASSWORD = "abc123";
+
+      function login(){
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const errormsg = document.getElementById("error-msg");
+
+        if(username === VALID_USERNAME && password ===VALID_PASSWORD){
+            document.getElementById("loginscreen").style.display = "none";
+            document.getElementById("shopscreen").style.display = "block";
+            errormsg.style.display="none";
+        } else{
+            errormsg.style.display="block";
+        }
+
+      }
+ 
+      function logout(){
+        document.getElementById("shopscreen").style.display = "none";
+        document.getElementById("loginscreen").style.display = "block";
+        document.getElementById("username").value="";
+        document.getElementById("password").value="";
+      }
+
+      function addedtocard(itemName){
+        alert(itemName +"addedtocard");
+      }
+   </script>
+
+</body>
+</html>
